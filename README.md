@@ -1,3 +1,5 @@
+add contentClass: tour
+
 remove:-
 tourId
 price_from
