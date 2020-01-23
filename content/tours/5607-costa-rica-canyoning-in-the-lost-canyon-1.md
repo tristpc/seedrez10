@@ -1,20 +1,19 @@
 ---
 template: SingleTour
-tourId: 6062
-supplier_id: 1
-date: "Fri Jan 10 2020 09:32:55 GMT-0600 (Central Standard Time)"
-title: "Canyoning in the Lost Canyon in Costa Rica"
-categories: 
+tourId: 5607
+date: "Sat Jul 20 2019 19:29:55 GMT-0600 (Central Standard Time)"
+title: "Costa Rica Canyoning in the Lost Canyon"
+categories:
   - category: Adventure
   - category: Canyoning
 tags: ['Adventure', 'Canyoning']
 meeting: "La Fortuna"
-meeting_lat: "10.4709"
-meeting_lng: "-84.6453"
-description: "Costa Rica tour Canyoning in the Lost Canyon in Costa Rica, id 6062"
+meeting_lat: "10.4718"
+meeting_lng: "-84.643"
+description: "Costa Rica tour Costa Rica Canyoning in the Lost Canyon, id 5607"
 price_from: 99
 min_participants: 1
-max_participants: 
+max_participants:
 start_time_text: "null"
 duration_text: "null"
 price_adult: null
@@ -23,10 +22,10 @@ price_student: null
 meeting_id: 40
 location_id: 40
 difficulty: "null"
-summary: "Voted the Top Tour in the World by TripAdvisor! Get ready for the adventure of a lifetime! The perfect place for first-timers and experienced canyoning enthusiasts. Trek deep into the Costa Rica rainforest and rappel the biggest waterfalls near the Arenal Volcano!"
+summary: "This Arenal Costa Rica canyoning adventure tour will take you where very few have had the privilege to roam: The Lost Canyon! Get ready for the adventure of a lifetime! The perfect place for first-timers and experienced canyoning enthusiasts. Trek deep into the Costa Rica rainforest and rappel the biggest waterfalls near the Arenal Volcano!"
 image: "https://www.desafiocostarica.com/Photos/Photo-Items/770x500/canyoneering---lost-canyon-adventures-1.jpg"
 main_photo: "https://www.desafiocostarica.com/Photos/Photo-Items/770x500/canyoneering---lost-canyon-adventures-1.jpg"
-featuredImage: "../../src/imgtour/canyoneering---lost-canyon-adventures-1.jpg"
+featuredImage: ../../src/imgtour/canyoneering---lost-canyon-adventures-1.jpg
 highlights: ""
 highlights2: ""
 includes: "*   Tour guide
@@ -43,8 +42,9 @@ advice: "We provide a delicious, homemade meal at the end of the Lost Canyon Adv
 
 Have a look at our Adventure Waiver if you have questions about our Costa Rica adventure tour policies.
 
-We provide a delicious, homemade meal at the end of the Lost Canyon Adventures canyoning tour we call the WARRIOR BUFFET - please let us know should you have any dietary restrictions like vegetarian needs, gluten-free, kosher, etc. and we will do our best to accommodate you.For reasons beyond our control (climate, river levels, etc.), we may change to a more-suitable tour with an equal or similar adventure-appeal or offer other tour options so you don't miss out on a fun day in Costa Rica. We reserve the right to cancel a trip due to unfavorable conditions & will only run a tour according to our policies. Full refund is given if (on rare occasion) no tour is run. This adventure involves some inherent risk and physical exertion, so you must be in good physical condition! While the recommended weight limit for our canyoneering (rappelling) tour and most zip line tours is 220 lbs (100 kilos) it’s more about waist size than weight as the ropes (canyoneering) and cables (zip lines) are rated for well over 220 lbs but the maximum waist size for the harnesses used for these tours is 42 inches. So if you are a little over 220 lbs but your waist is less than 42 inches you can still do these tours.NOTE: We have an extra transport charge for hotels outside of our normal pick-up zone."
+For reasons beyond our control (climate, river levels, etc.), we may change to a more-suitable tour with an equal or similar adventure-appeal or offer other tour options so you don't miss out on a fun day in Costa Rica. We reserve the right to cancel a trip due to unfavorable conditions & will only run a tour according to our policies. Full refund is given if (on rare occasion) no tour is run. This adventure involves some inherent risk and physical exertion, so you must be in good physical condition! While the recommended weight limit for our canyoneering (rappelling) tour and most zip line tours is 220 lbs (100 kilos) it’s more about waist size than weight as the ropes (canyoneering) and cables (zip lines) are rated for well over 220 lbs but the maximum waist size for the harnesses used for these tours is 42 inches. So if you are a little over 220 lbs but your waist is less than 42 inches you can still do these tours. NOTE: We have an extra transport charge for hotels outside of our normal pick-up zone."
 accom: ""
+contentClass: tour
 ---
 Lost Canyon Adventures Canyoning -- Costa Rica's best multi-sport adventure near the Arenal Volcano!
 

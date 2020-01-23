@@ -1,20 +1,19 @@
 ---
 template: SingleTour
-tourId: 6066
-supplier_id: 1
-date: "Fri Jan 10 2020 09:32:55 GMT-0600 (Central Standard Time)"
-title: "White Water Rafting Sarapiqui Rafting Class 3-4 from La Fortuna"
-categories: 
+tourId: 5608
+date: "Sat Jul 20 2019 19:29:55 GMT-0600 (Central Standard Time)"
+title: "Costa Rica Whitewater Rafting Sarapiqui Extreme Rafting"
+categories:
   - category: Adventure
   - category: Rafting
 tags: ['Adventure', 'Rafting']
 meeting: "La Fortuna"
-meeting_lat: "10.4709"
-meeting_lng: "-84.6453"
-description: "Costa Rica tour White Water Rafting Sarapiqui Rafting Class 3-4 from La Fortuna, id 6066"
-price_from: 99
+meeting_lat: "10.4718"
+meeting_lng: "-84.643"
+description: "Costa Rica tour Costa Rica Whitewater Rafting Sarapiqui Extreme Rafting, id 5608"
+price_from: 95
 min_participants: 1
-max_participants: 
+max_participants:
 start_time_text: "null"
 duration_text: "null"
 price_adult: null
@@ -24,15 +23,15 @@ meeting_id: 40
 location_id: 40
 difficulty: "null"
 summary: "Get ready for one of the most-extreme white water rafting trips in Costa Rica! You will love the adrenaline-charged, intense and EXTREME Sarapiqui River class 3-4 Jungle Run Upper Section. Desafio has an exclusive entrance to the most-exciting part of this exuberant river! White Water Rafting on the Sarapiquí River is considered one of the Must-Do Costa Rica tours."
-image: "https://www.desafiocostarica.com/Photos/Photo-Items/Costa-Rica-Whitewater-Rafting-Sarapiqui-Extreme-Rafting-1562280276.jpg"
-main_photo: "https://www.desafiocostarica.com/Photos/Photo-Items/Costa-Rica-Whitewater-Rafting-Sarapiqui-Extreme-Rafting-1562280276.jpg"
-featuredImage: "../../src/imgtour/Costa-Rica-Whitewater-Rafting-Sarapiqui-Extreme-Rafting-1562280276.jpg"
+image: "https://www.desafiocostarica.com/Photos/Photo-Items/770x500/Costa-Rica-Whitewater-Rafting-Sarapiqui-Extreme-Rafting-1507570466.jpg"
+main_photo: "https://www.desafiocostarica.com/Photos/Photo-Items/770x500/Costa-Rica-Whitewater-Rafting-Sarapiqui-Extreme-Rafting-1507570466.jpg"
+featuredImage: ../../src/imgtour/Costa-Rica-Whitewater-Rafting-Sarapiqui-Extreme-Rafting-1562280276.jpg
 highlights: ""
 highlights2: ""
 includes: "*   Transport to/from your hotel
 *   Bilingual guides
 *   Tropical fruit snack
-*   Lunch
+*   Delicious meal
 *   Photographer"
 excludes: ""
 bring: "*   Clothes to get wet in
@@ -43,6 +42,7 @@ advice: "If you got an late start, don't worry - you can always go white water r
 
 For reasons beyond our control (climate, river levels, etc.), we may change to a more-suitable tour with an equal or similar adventure-appeal or offer other tour options. We reserve the right to cancel a trip due to unfavorable conditions and will only run a tour according to our company policies. Full refund is given if (on rare occasion) no tour is run. NOTE: We have an extra transport charge for hotels outside of our normal pick-up zone."
 accom: ""
+contentClass: tour
 ---
 Costa Rica White Water Rafting Class 3 and 4 Sarapiqui River Jungle Run
 

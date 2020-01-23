@@ -42,6 +42,7 @@ typings/
 content/toursPREV/
 content/toursREJECT/
 content/toursOTHERS/
+content/toursNEW/
 create-md-tours-triphound.js
 create-md-tours.js
 create-md-toursTEST.js
