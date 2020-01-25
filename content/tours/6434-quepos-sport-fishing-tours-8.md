@@ -26,7 +26,6 @@ summary: "Quepos is one of the World’s finest and most famous sport fishing lo
 image: "https://www.tucanestours.com/wp-content/uploads/2018/01/CROP-snook-fishing-in-costa-rica.jpg"
 main_photo: "https://www.tucanestours.com/wp-content/uploads/2018/01/CROP-snook-fishing-in-costa-rica.jpg"
 featuredImage: "../../src/imgtour/CROP-snook-fishing-in-costa-rica.jpg"
-
 highlights: ""
 highlights2: ""
 includes: "Transportation from and to hotel, captain and mate on board, all fishing tackle, diesel, beer, snacks, fruits, water, sodas, bait, and lures."
