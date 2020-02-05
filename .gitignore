@@ -46,6 +46,7 @@ content/toursNEW/
 create-md-tours-triphound.js
 create-md-tours.js
 create-md-toursTEST.js
+gatsby-nodeNWgitpod.js
 
 # Optional npm cache directory
 .npm
