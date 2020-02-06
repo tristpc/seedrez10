@@ -8,6 +8,7 @@ import SEO from "../components/seo"
 import PostSection from '../components/PostSection'
 import PostCategoriesNav from '../components/PostCategoriesNav'
 import Layout from '../components/Layout'
+import SideBar from '../components/SideBarTest'
 
 /**
  * Filter posts by date. Feature dates will be filtered
@@ -73,10 +74,18 @@ export const ToursIndxTemplate = ({
             </section>
           )}
 
+          
           {!!posts.length && (
             <section className="section">
               <div className="container">
-                <PostSection posts={filteredPosts} />
+                <div className="mainblock">                
+                  <div className="aside">
+                    <SideBar />
+                  </div>
+                  <div className="content">
+                    <TourSection posts={filteredPosts} />
+                  </div>
+                </div>
               </div>
             </section>
           )}

@@ -14,14 +14,14 @@ import qs from 'qs'
 
 
 //import TourRegionNav from '../components/TourRegionNav' //version of PostCategoriesNav
-import ListPageHeader from '../components/ListPageHeader' //version of PageHeader
+import ListPageHeader from '../components/PageHeader' //version of PageHeader
 import Layout from '../components/Layout'
 // import TourTagsNav from '../components/TourTagsNav' //version of PostCategoriesNav
 // import TourRegionsNav from '../components/TourRegionsNav' //version of TourTagsNav
-import TourSectionNew from '../components/TourSectionNew' //simple function version of PostSection
+import TourSectionNew from '../components/TourSection' //simple function version of PostSection
 
 //! changes re sidebar
-import SideBar from '../components/SideBar'
+import SideBar from '../components/SideBarTest'
 // import DropMenuButton from "../components/DropMenuButton";
 // import DropMenu from "../components/DropMenu";
 
@@ -33,7 +33,7 @@ const PlaceCatIndex = ({ pageContext, data }) => (
 
     const { tag, place, tagsRegion, allRegions } = pageContext;
 
-    let { edges: posts, totalCount } = data.allMarkdownRemark;
+    let { edges: posts, totalCount } = data.allMdx;
     const arrTagsRegion = tagsRegion.split(",")
     const arrAllRegions = allRegions.split(",")
 
@@ -95,7 +95,7 @@ export default PlaceCatIndex;
 
 export const pageQuery = graphql`
 query($tag: String, $place: String) {
-  allMarkdownRemark(
+  allMdx(
     limit: 2000
     sort: { fields: [frontmatter___price_from], order: ASC }
     filter: {frontmatter: {tags: { in: [$tag] } meeting: { eq: $place } }}
@@ -113,7 +113,13 @@ query($tag: String, $place: String) {
               date
               tags
               price_from
-              featuredImage
+              featuredImage {
+                childImageSharp {
+                    fluid(maxWidth: 786) {
+                    ...GatsbyImageSharpFluid
+                    }
+                }
+              }
               meeting
             }
           }
