@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 // import Image from './Image'
 // import Content from './Content'
-import './ListPageHeader.css' //version of PageHeader.css
+//import './ListPageHeader.css' //version of PageHeader.css
 // import DropMenuButton from "./DropMenuButton"; //! MAKE WORK!!!!!
 
 const ListPageHeader = ({ place, tag, count }) => {
@@ -41,7 +41,7 @@ const ListPageHeader = ({ place, tag, count }) => {
   return (
       <div className="container">
         <h2>{placeTitle}</h2>
-        <DropMenuButton title="Filters" id="dropButton"/>
+        
       </div>
   )
 }

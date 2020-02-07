@@ -5,7 +5,7 @@ import { Location } from '@reach/router'
 import qs from 'qs'
 
 import SEO from "../components/seo"
-import PostSection from '../components/PostSection'
+import TourSection from '../components/PostSection'
 import PostCategoriesNav from '../components/PostCategoriesNav'
 import Layout from '../components/Layout'
 import SideBar from '../components/SideBarTest'
