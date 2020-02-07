@@ -4,6 +4,8 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
+  let allRegions = []
+  let allTags = []
 
   return graphql(
     `
@@ -84,153 +86,166 @@ exports.createPages = ({ graphql, actions }) => {
         },
       })
 
-      //* SECTION FOR TOURS
-      if (contentClass === "tour") {
-        console.log(`\nCreating regional ${contentClass} lists`)
+    }) //END mdFiles.forEach
 
-        //* create array allRegions of regions
-        
-        // Iterate through each post, putting all found meeting into `allRegions`
-        let allRegions = []
-        _.each(tourPages, edge => {
-          if (_.get(edge, "node.frontmatter.meeting")) {
-            allRegions = allRegions.concat(edge.node.frontmatter.meeting)
-          }
-        })
-        // Eliminate duplicates
-        allRegions = _.uniq(allRegions)
-        //* end new regions
 
-        console.log(`allRegions:-`)
-        console.log(allRegions)
+    //* SECTION FOR TOURS => DEFINITIONS OF REGIONS & TAGS   
 
-        //* for each region, define tours for each tag, tags (allTagsRegion) & tour count
-        allRegions.forEach(element => { //element = region
-          let mdFilesRegion
-          if (element) {
-            mdFilesRegion = tourPages.filter(post =>post.node.frontmatter.meeting === element)
-            //console.log("\n"+element+":-");
-          } else {
-            mdFilesRegion = tourPages
-            //console.log("\nAll country:-");
-          }
-          let countToursRegion = mdFilesRegion.length
-          //console.log(`# tours in $element: $countToursRegion`);
-          console.log("# tours in "+element+": "+countToursRegion)
+    //if (contentClass === "tour") {
+    console.log(`\nCREATING REGION & TAG ARRAYS FOR COUNTRY`)
 
-          //* define tags for region (allTagsRegion)
-          let allTagsRegion = []
-          // Iterate through each post, putting all found tags into `allTagsRegion`
-          _.each(mdFilesRegion, edge => {
-            if (_.get(edge, "node.frontmatter.tags")) {
-              allTagsRegion = allTagsRegion.concat(edge.node.frontmatter.tags)
-            }
-          })
-          // Eliminate duplicates
-          allTagsRegion = _.uniq(allTagsRegion)
-          //* end new tags
+    //* create array allRegions of regions
+    
+    // Iterate through each post, putting all found meeting into `allRegions`
+    //let allRegions = []
+    _.each(tourPages, edge => {
+        if (_.get(edge, "node.frontmatter.meeting")) {
+        allRegions = allRegions.concat(edge.node.frontmatter.meeting)
+        }
+    })
+    // Eliminate duplicates
+    allRegions = _.uniq(allRegions)
+    //* end new regions
 
-          console.log("Distinct tags for region "+element+":-")
-          console.log(allTagsRegion)
-          //id = idTourIndex
-          //templateSlug = element
+    console.log(`allRegions:-`)
+    console.log(allRegions)
 
-          //* for each region & tag, define slug & create page
-          allTagsRegion.forEach(item => { //item = tag
-            if (element) {
-              thisSlug = "/"+element.toLowerCase()+"/"+item.toLowerCase()+"/"
-            } else {
-              thisSlug = "/tours/"+item.toLowerCase()+"/"
-            }
-            template = "TourList" //
-            // createPage({
-            //   path: thisSlug,
-            //   component: path.resolve(`src/templates/${String(template)}.js`),
-            //   context: {
-            //     place: element,
-            //     tag: item,
-            //     tagsRegion: allTagsRegion.toString(),
-            //     allRegions: allRegions.toString(),
-            //   }
-            // })
-          });
+    //* define all tags
+    //let allTags = []
+    // Iterate through each post, putting all found tags into `allTags`
+    _.each(tourPages, edge => {
+        if (_.get(edge, "node.frontmatter.tags")) {
+        allTags = allTags.concat(edge.node.frontmatter.tags)
+        }
+    })
+    // Eliminate duplicates
+    allTags = _.uniq(allTags)
+    //* end new tags
 
-          //* for each region alone, define slug & create page
-          template = "TourListRegion" //removes tag from graphql
-          //was ToursIndexPage4reg, which uses MUI
-          thisSlug = "/"+element.toLowerCase()+"/"
-          //thisSlug = "/"+_.kebabCase(element)+"/"
-          console.log("slug = "+thisSlug)
-        //   createPage({
-        //     path: thisSlug,
-        //     component: path.resolve(`src/templates/${String(template)}.js`),
-        //     context: {
-        //       place: element,
-        //       tag: '',
-        //       tagsRegion: allTagsRegion.toString(),
-        //       allRegions: allRegions.toString(),
-        //     }
-        //   })
+    console.log(`All tags for country (allTags):-`)
+    console.log(allTags)
+    //} 
+    //* END SECTION FOR TOURS DEFS
 
-        }); //end allRegions.forEach
 
-        //* define all tags
-        let allTags = []
-        // Iterate through each post, putting all found tags into `allTags`
-        _.each(tourPages, edge => {
+    //* SECTION FOR CREATING TOURS PAGES
+    //if (contentClass === "tour") {
+      console.log(`\nCREATING TOURS LISTING PAGES`)
+
+      console.log(`allRegions (from above):-`)
+      console.log(allRegions)
+
+      //* for each region, define tours for each tag, tags (allTagsRegion) & tour count
+      allRegions.forEach(element => { //element = region
+        let mdFilesRegion
+        if (element) {
+          mdFilesRegion = tourPages.filter(post =>post.node.frontmatter.meeting === element)
+          //console.log("\n"+element+":-");
+        } else {
+          mdFilesRegion = tourPages
+          //console.log("\nAll country:-");
+        }
+        let countToursRegion = mdFilesRegion.length
+        //console.log(`# tours in $element: $countToursRegion`);
+        console.log("# tours in "+element+": "+countToursRegion)
+
+        //* define tags for region (allTagsRegion)
+        let allTagsRegion = []
+        // Iterate through each post, putting all found tags into `allTagsRegion`
+        _.each(mdFilesRegion, edge => {
           if (_.get(edge, "node.frontmatter.tags")) {
-            allTags = allTags.concat(edge.node.frontmatter.tags)
+            allTagsRegion = allTagsRegion.concat(edge.node.frontmatter.tags)
           }
         })
         // Eliminate duplicates
-        allTags = _.uniq(allTags)
+        allTagsRegion = _.uniq(allTagsRegion)
         //* end new tags
 
-        console.log(`All tags for country (allTags):-`)
-        console.log(allTags)
+        console.log("Distinct tags for region "+element+":-")
+        console.log(allTagsRegion)
+        //id = idTourIndex
+        //templateSlug = element
 
-        //* for all tours in country, define slug & create page
-        template = "TourListAll" //removes tag from graphql
-        thisSlug = "/all/"
-        //console.log("slug = "+thisSlug)
-        // createPage({
-        //   path: thisSlug,
-        //   component: path.resolve(`src/templates/${String(template)}.js`),
-        //   context: {
-        //     place: '',
-        //     tag: '',
-        //     tagsRegion: allTags.toString(),
-        //     allRegions: allRegions.toString(),
-        //   }
-        // })
-
-        //* NEW for each tag for whole country, define slug & create page
-        allTags.forEach(item => { //item = tag
-          thisSlug = "/all/"+item.toLowerCase()+"/"
-          template = "TourListTag" //
-          //console.log("slug = "+thisSlug);
-        //   createPage({
-        //     path: thisSlug,
-        //     component: path.resolve(`src/templates/${String(template)}.js`),
-        //     context: {
-        //       place: '',
-        //       tag: item,
-        //       tagsRegion: allTags.toString(),
-        //       allRegions: allRegions.toString(),
-        //     }
-        //   })
+        //* for each region & tag, define slug & create page
+        allTagsRegion.forEach(item => { //item = tag
+          if (element) {
+            thisSlug = "/"+element.toLowerCase()+"/"+item.toLowerCase()+"/"
+          } else {
+            thisSlug = "/tours/"+item.toLowerCase()+"/"
+          }
+          template = "TourList" //
+          // createPage({
+          //   path: thisSlug,
+          //   component: path.resolve(`src/templates/${String(template)}.js`),
+          //   context: {
+          //     place: element,
+          //     tag: item,
+          //     tagsRegion: allTagsRegion.toString(),
+          //     allRegions: allRegions.toString(),
+          //   }
+          // })
         });
 
-      } //* END SECTION FOR TOURS
+        //* for each region alone, define slug & create page
+        template = "TourListRegion" //removes tag from graphql
+        //was ToursIndexPage4reg, which uses MUI
+        thisSlug = "/"+element.toLowerCase()+"/"
+        //thisSlug = "/"+_.kebabCase(element)+"/"
+        console.log("slug = "+thisSlug)
+      //   createPage({
+      //     path: thisSlug,
+      //     component: path.resolve(`src/templates/${String(template)}.js`),
+      //     context: {
+      //       place: element,
+      //       tag: '',
+      //       tagsRegion: allTagsRegion.toString(),
+      //       allRegions: allRegions.toString(),
+      //     }
+      //   })
 
+      }); //end allRegions.forEach
 
+      console.log(`All tags for country (allTags) from above:-`)
+      console.log(allTags)
 
+      //* for all tours in country, define slug & create page
+      template = "TourListAll" //removes tag from graphql
+      thisSlug = "/all/"
+      //console.log("slug = "+thisSlug)
+      // createPage({
+      //   path: thisSlug,
+      //   component: path.resolve(`src/templates/${String(template)}.js`),
+      //   context: {
+      //     place: '',
+      //     tag: '',
+      //     tagsRegion: allTags.toString(),
+      //     allRegions: allRegions.toString(),
+      //   }
+      // })
 
-    })
+      //* NEW for each tag for whole country, define slug & create page
+      allTags.forEach(item => { //item = tag
+        thisSlug = "/all/"+item.toLowerCase()+"/"
+        template = "TourListTag" //
+        //console.log("slug = "+thisSlug);
+      //   createPage({
+      //     path: thisSlug,
+      //     component: path.resolve(`src/templates/${String(template)}.js`),
+      //     context: {
+      //       place: '',
+      //       tag: item,
+      //       tagsRegion: allTags.toString(),
+      //       allRegions: allRegions.toString(),
+      //     }
+      //   })
+      }); 
+      //* END SECTION FOR CREATING TOURS PAGES
+
+    //} 
 
     return null
-  })
-}
+  }) //END .then(result
+} //END exports.createPages
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
