@@ -1,7 +1,7 @@
 //This is a modified version of PostSection.js
 
 import React from 'react'
-import PostCard from '../components/TourCard' //modified version of PostCard
+import PostCard from '../components/PostCard' //modified version of PostCard
 import styled from 'styled-components'
 
 //PostSection

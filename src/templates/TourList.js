@@ -14,11 +14,11 @@ import qs from 'qs'
 
 
 //import TourRegionNav from '../components/TourRegionNav' //version of PostCategoriesNav
-import ListPageHeader from '../components/PageHeader' //version of PageHeader
+import ListPageHeader from '../components/ListPageHeader' //version of PageHeader
 import Layout from '../components/Layout'
 // import TourTagsNav from '../components/TourTagsNav' //version of PostCategoriesNav
 // import TourRegionsNav from '../components/TourRegionsNav' //version of TourTagsNav
-import TourSectionNew from '../components/TourSection' //simple function version of PostSection
+import TourSection from '../components/TourSection' //simple function version of PostSection
 
 //! changes re sidebar
 import SideBar from '../components/SideBarTest'
@@ -76,7 +76,7 @@ const PlaceCatIndex = ({ pageContext, data }) => (
                       tag={tag} />
                     </div>
                     <div className="content">
-                      <TourSectionNew posts={filteredPosts} />
+                      <TourSection posts={filteredPosts} />
                     </div>
                   </div>
                 </div>

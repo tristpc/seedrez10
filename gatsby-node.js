@@ -91,13 +91,11 @@ exports.createPages = ({ graphql, actions }) => {
 
     //* SECTION FOR TOURS => DEFINITIONS OF REGIONS & TAGS   
 
-    //if (contentClass === "tour") {
     console.log(`\nCREATING REGION & TAG ARRAYS FOR COUNTRY`)
 
     //* create array allRegions of regions
     
     // Iterate through each post, putting all found meeting into `allRegions`
-    //let allRegions = []
     _.each(tourPages, edge => {
         if (_.get(edge, "node.frontmatter.meeting")) {
         allRegions = allRegions.concat(edge.node.frontmatter.meeting)
@@ -111,7 +109,6 @@ exports.createPages = ({ graphql, actions }) => {
     console.log(allRegions)
 
     //* define all tags
-    //let allTags = []
     // Iterate through each post, putting all found tags into `allTags`
     _.each(tourPages, edge => {
         if (_.get(edge, "node.frontmatter.tags")) {
@@ -124,16 +121,14 @@ exports.createPages = ({ graphql, actions }) => {
 
     console.log(`All tags for country (allTags):-`)
     console.log(allTags)
-    //} 
     //* END SECTION FOR TOURS DEFS
 
 
     //* SECTION FOR CREATING TOURS PAGES
-    //if (contentClass === "tour") {
       console.log(`\nCREATING TOURS LISTING PAGES`)
 
-      console.log(`allRegions (from above):-`)
-      console.log(allRegions)
+    //   console.log(`allRegions (from above):-`)
+    //   console.log(allRegions)
 
       //* for each region, define tours for each tag, tags (allTagsRegion) & tour count
       allRegions.forEach(element => { //element = region
@@ -174,16 +169,16 @@ exports.createPages = ({ graphql, actions }) => {
             thisSlug = "/tours/"+item.toLowerCase()+"/"
           }
           template = "TourList" //
-          // createPage({
-          //   path: thisSlug,
-          //   component: path.resolve(`src/templates/${String(template)}.js`),
-          //   context: {
-          //     place: element,
-          //     tag: item,
-          //     tagsRegion: allTagsRegion.toString(),
-          //     allRegions: allRegions.toString(),
-          //   }
-          // })
+          createPage({
+            path: thisSlug,
+            component: path.resolve(`src/templates/${String(template)}.js`),
+            context: {
+              place: element,
+              tag: item,
+              tagsRegion: allTagsRegion.toString(),
+              allRegions: allRegions.toString(),
+            }
+          })
         });
 
         //* for each region alone, define slug & create page
@@ -205,8 +200,8 @@ exports.createPages = ({ graphql, actions }) => {
 
       }); //end allRegions.forEach
 
-      console.log(`All tags for country (allTags) from above:-`)
-      console.log(allTags)
+    //   console.log(`All tags for country (allTags) from above:-`)
+    //   console.log(allTags)
 
       //* for all tours in country, define slug & create page
       template = "TourListAll" //removes tag from graphql
