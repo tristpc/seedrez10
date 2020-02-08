@@ -169,7 +169,8 @@ exports.createPages = ({ graphql, actions }) => {
           } else {
             thisSlug = "/tours/"+item.toLowerCase()+"/"
           }
-          template = "TourList" //
+          template = "TourList" // orig
+          template = "TourListIndx" //now
           console.log("Page: slug: "+thisSlug+" ("+element+"/ tag "+item+")")
           createPage({
             path: thisSlug,
@@ -179,7 +180,7 @@ exports.createPages = ({ graphql, actions }) => {
               tag: item,
               tagsRegion: allTagsRegion.toString(),
               allRegions: allRegions.toString(),
-              //slug: thisSlug,
+              slug: thisSlug,
             }
           })
         });
