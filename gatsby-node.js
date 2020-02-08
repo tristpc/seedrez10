@@ -169,6 +169,7 @@ exports.createPages = ({ graphql, actions }) => {
             thisSlug = "/tours/"+item.toLowerCase()+"/"
           }
           template = "TourList" //
+          console.log("Page: slug: "+thisSlug+" ("+element+"/ tag "+item+")")
           createPage({
             path: thisSlug,
             component: path.resolve(`src/templates/${String(template)}.js`),
@@ -177,6 +178,7 @@ exports.createPages = ({ graphql, actions }) => {
               tag: item,
               tagsRegion: allTagsRegion.toString(),
               allRegions: allRegions.toString(),
+              //slug: thisSlug,
             }
           })
         });
