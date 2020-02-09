@@ -120,20 +120,8 @@ export default ToursIndx
 
 export const pageQuery = graphql`
   ## query name must be unique to this file
-  query ToursIndx($slug: String!) {
-    page: mdx(fields: { slug: { eq: $slug } }) {
-      fields {
-        contentClass
-      }
-      frontmatter {
-        title
-        excerpt
-        template
-        subtitle
-
-      }
-    }
-
+  query {
+    
     posts: allMdx(
         filter: { fields: { contentClass: { eq: "tour" } } }
         sort: { order: DESC, fields: [frontmatter___title] }
@@ -162,20 +150,6 @@ export const pageQuery = graphql`
         }
       }
     }
-    postCategories: allMdx(
-      filter: { fields: { contentClass: { eq: "placeCategories" } } }
-      sort: { order: ASC, fields: [frontmatter___title] }
-    ) {
-      edges {
-        node {
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-          }
-        }
-      }
-    }
+    
   }
 `
