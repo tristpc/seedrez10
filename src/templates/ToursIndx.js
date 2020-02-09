@@ -98,10 +98,7 @@ export const ToursIndxTemplate = ({
 // Export Default ToursIndx for front-end
 const ToursIndx = ({ data: { page, posts, postCategories } }) => (
 
-  <Layout
-    meta={page.frontmatter.meta || false}
-    title={page.frontmatter.title || false}
-  >
+  <Layout>
     <SEO
         title="Tours list"
         keywords={[`tours`, `regions`]}
@@ -110,15 +107,7 @@ const ToursIndx = ({ data: { page, posts, postCategories } }) => (
     />
 
     <ToursIndxTemplate
-      {...page}
-      {...page.fields}
-      {...page.frontmatter}
       posts={posts.edges.map(post => ({
-        ...post.node,
-        ...post.node.frontmatter,
-        ...post.node.fields
-      }))}
-      postCategories={postCategories.edges.map(post => ({
         ...post.node,
         ...post.node.frontmatter,
         ...post.node.fields

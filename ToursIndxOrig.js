@@ -1,4 +1,4 @@
-//copy of ToursIndx
+//version of BlogIndex.js'
 import React from 'react'
 import { graphql } from 'gatsby'
 import { Location } from '@reach/router'
@@ -131,7 +131,7 @@ export default ToursIndx
 
 export const pageQuery = graphql`
   ## query name must be unique to this file
-  query TourListIndx($slug: String!) {
+  query ToursIndx($slug: String!) {
     page: mdx(fields: { slug: { eq: $slug } }) {
       fields {
         contentClass
