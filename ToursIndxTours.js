@@ -1,4 +1,4 @@
-//version of ToursIndxREALORIG.js without pages, pagecats
+//9Feb, copy of ToursIndx.js with filter changed of graphql, for tour lists
 import React from 'react'
 import { graphql } from 'gatsby'
 import { Location } from '@reach/router'
@@ -65,6 +65,15 @@ export const ToursIndxTemplate = ({
 
       return (
         <main className="Places">
+
+          {!!postCategories.length && (
+            <section className="section thin">
+              <div className="container">
+                <PostCategoriesNav enableSearch categories={postCategories} />
+              </div>
+            </section>
+          )}
+
           
           {!!posts.length && (
             <section className="section">
@@ -87,7 +96,7 @@ export const ToursIndxTemplate = ({
 )
 
 // Export Default ToursIndx for front-end
-const ToursIndx = ({ data: { posts } }) => (
+const ToursIndx = ({ data: { page, posts, postCategories } }) => (
 
   <Layout>
     <SEO
@@ -114,7 +123,7 @@ export const pageQuery = graphql`
   query {
     
     posts: allMdx(
-        filter: { fields: { contentClass: { eq: "tour" } } }
+        filter: {frontmatter: {tags: { in: [$tag] } meeting: { eq: $place } }}
         sort: { order: DESC, fields: [frontmatter___title] }
     ) {
       edges {

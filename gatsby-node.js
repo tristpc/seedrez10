@@ -169,8 +169,9 @@ exports.createPages = ({ graphql, actions }) => {
           } else {
             thisSlug = "/tours/"+item.toLowerCase()+"/"
           }
-          template = "TourList" // orig
-          template = "TourListIndx" //now
+        //   template = "TourList" // orig
+        //   template = "TourListIndx" //prev
+          template = "ToursIndxTours" //now
           console.log("Page: slug: "+thisSlug+" ("+element+"/ tag "+item+")")
         //   createPage({
         //     path: thisSlug,
