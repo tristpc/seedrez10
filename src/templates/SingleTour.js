@@ -132,14 +132,14 @@ const SingleTourTemplate = (props) => { //replace with arrow function
 export default SingleTourTemplate
 
 export const pageQuery = graphql`
-  query TourBySlug($slug: String!) {
+  query TourBySlug($slugggg: String!) {
     site {
       siteMetadata {
         title
         author
       }
     }
-    mdx(fields: { slug: { eq: $slug } }) {
+    mdx(fields: { slug: { eq: $slugggg } }) {
       id
       excerpt(pruneLength: 160)
       body
