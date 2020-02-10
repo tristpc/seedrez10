@@ -61,10 +61,7 @@ export const ToursIndxTemplate = ({
         )
       }
 
-      const { tag, place, tagsRegion, allRegions } = this.props.pageContext;
-      console.log("tag="+tag)
-      console.log("place="+place)
-      console.log("tagsRegion="+tagsRegion)
+      const { tag, place, tagsRegion, allRegions } = pageContext;
 
       return (
         <main className="Places">
@@ -102,6 +99,7 @@ const ToursIndx = ({ pageContext, data: { posts } }) => (
     />
 
     <ToursIndxTemplate
+      pageContext={pageContext}
       posts={posts.edges.map(post => ({
         ...post.node,
         ...post.node.frontmatter,
@@ -115,10 +113,10 @@ export default ToursIndx
 
 export const pageQuery = graphql`
   ## query name must be unique to this file
-  query {
+  query($tag: String, $place: String) {
     
     posts: allMdx(
-        filter: {frontmatter: {tags: { in: ["Biking"] } meeting: { eq: "La Fortuna" } }}
+        filter: {frontmatter: {tags: { in: [$tag] } meeting: { eq: $place } }}
         sort: { order: DESC, fields: [frontmatter___title] }
     ) {
       edges {

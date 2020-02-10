@@ -84,7 +84,6 @@ exports.createPages = ({ graphql, actions }) => {
           slug: post.node.fields.slug,
           previous,
           next,
-          //slugggg: post.node.fields.slug,
         },
       })
 
@@ -182,7 +181,7 @@ exports.createPages = ({ graphql, actions }) => {
               tag: item,
               tagsRegion: allTagsRegion.toString(),
               allRegions: allRegions.toString(),
-              slug: thisSlug,
+              filter: 'filter: {frontmatter: {tags: { in: ["'+item+'"] } meeting: { eq: "'+element+'" } }}',
             }
           })
         });
