@@ -8,7 +8,9 @@ filter: {frontmatter: {tags: { in: ["Biking"] } meeting: { eq: "La Fortuna" } }}
 filter: { fields: { contentClass: { eq: "tour" } } }
 and in ToursIndx try:-
 filter: $filter  NOT DONE YET
-4) If works, save ToursIndx as ToursIndxTours, add the sort and filter below as page contexts for TourList:-
+4) Save ToursIndx as ToursIndxTours, adjust GN and add pagecontext and filter below:-
+filter: {frontmatter: {tags: { in: ["Adventure"] } meeting: { eq: "La Fortuna" } }}  WORKS
+5) Save ToursIndx as ToursIndxTours, add the sort and filter below as page contexts for TourList:-
 sort: { "fields": ["publishDate"], "order": "DESC" }
 sort: { fields: [frontmatter___price_from], order: ASC }
 filter: {frontmatter: {tags: { in: [$tag] } meeting: { eq: $place } }}

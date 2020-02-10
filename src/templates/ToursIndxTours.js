@@ -61,6 +61,8 @@ export const ToursIndxTemplate = ({
         )
       }
 
+      const { tag, place, tagsRegion, allRegions } = pageContext;
+
       return (
         <main className="Places">
           
@@ -112,7 +114,7 @@ export const pageQuery = graphql`
   query {
     
     posts: allMdx(
-        filter: {frontmatter: {tags: { in: ["Biking"] } meeting: { eq: "La Fortuna" } }}
+        filter: {frontmatter: {tags: { in: [$tag] } meeting: { eq: $place } }}
         sort: { order: DESC, fields: [frontmatter___title] }
     ) {
       edges {
