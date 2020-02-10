@@ -1,5 +1,6 @@
 # To do Mon:-
 1) Check Feb7 GP version to see if ToursIndx was run but not pushed to Github without postcats & pages in GraphQL. Remove all refs to postcats & pages. WORKS!!
+1a) Change from $slug to $slugggg in SingleTour and add this as additional page context in main page creation of g-node. WORKS!! SingleTour.js able to extract page context.
 2) Add tags & meeting to ToursIndx, then check GraphQL with this instead
 filter: {frontmatter: {tags: { in: [$tag] } meeting: { eq: $place } }} =>
 filter: {frontmatter: {tags: { in: ["Biking"] } meeting: { eq: "La Fortuna" } }}  WORKS!!!!!
