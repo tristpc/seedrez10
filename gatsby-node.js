@@ -174,17 +174,17 @@ exports.createPages = ({ graphql, actions }) => {
         //   template = "TourListIndx" //prev
           template = "ToursIndxTours" //now
           console.log("Page: slug: "+thisSlug+" ("+element+"/ tag "+item+")")
-        //   createPage({
-        //     path: thisSlug,
-        //     component: path.resolve(`src/templates/${String(template)}.js`),
-        //     context: {
-        //       place: element,
-        //       tag: item,
-        //       tagsRegion: allTagsRegion.toString(),
-        //       allRegions: allRegions.toString(),
-        //       slug: thisSlug,
-        //     }
-        //   })
+          createPage({
+            path: thisSlug,
+            component: path.resolve(`src/templates/${String(template)}.js`),
+            context: {
+              place: element,
+              tag: item,
+              tagsRegion: allTagsRegion.toString(),
+              allRegions: allRegions.toString(),
+              slug: thisSlug,
+            }
+          })
         });
 
         //* for each region alone, define slug & create page
