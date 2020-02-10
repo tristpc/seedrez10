@@ -61,7 +61,7 @@ export const ToursIndxTemplate = ({
         )
       }
 
-      const { tag, place, tagsRegion, allRegions } = pageContext;
+      const { tag, place, tagsRegion, allRegions } = this.props.pageContext;
       console.log("tag="+tag)
       console.log("place="+place)
       console.log("tagsRegion="+tagsRegion)
