@@ -91,7 +91,7 @@ export const ToursIndxTemplate = ({
 )
 
 // Export Default ToursIndx for front-end
-const ToursIndx = ({ data: { posts } }) => (
+const ToursIndx = ({ pageContext, data: { posts } }) => (
 
   <Layout>
     <SEO
