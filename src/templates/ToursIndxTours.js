@@ -62,6 +62,9 @@ export const ToursIndxTemplate = ({
       }
 
       const { tag, place, tagsRegion, allRegions } = pageContext;
+      console.log("tag="+tag)
+      console.log("place="+place)
+      console.log("tagsRegion="+tagsRegion)
 
       return (
         <main className="Places">
@@ -73,6 +76,7 @@ export const ToursIndxTemplate = ({
                   <div className="aside">
                     <SideBar />
                   </div>
+                  
                   <div className="content">
                     <TourSection posts={filteredPosts} />
                   </div>
@@ -114,7 +118,7 @@ export const pageQuery = graphql`
   query {
     
     posts: allMdx(
-        filter: {frontmatter: {tags: { in: [$tag] } meeting: { eq: $place } }}
+        filter: {frontmatter: {tags: { in: ["Biking"] } meeting: { eq: "La Fortuna" } }}
         sort: { order: DESC, fields: [frontmatter___title] }
     ) {
       edges {
