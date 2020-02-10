@@ -112,7 +112,7 @@ export const pageQuery = graphql`
   query {
     
     posts: allMdx(
-        filter: {frontmatter: {tags: { in: ["Adventure"] } meeting: { eq: "La Fortuna" } }}
+        filter: {frontmatter: {tags: { in: ["Biking"] } meeting: { eq: "La Fortuna" } }}
         sort: { order: DESC, fields: [frontmatter___title] }
     ) {
       edges {
