@@ -8,7 +8,7 @@ import SEO from "../components/seo"
 import TourSection from '../components/PostSection'
 //import PostCategoriesNav from '../components/PostCategoriesNav'
 import Layout from '../components/Layout'
-import SideBar from '../components/SideBarTest'
+import SideBar from '../components/SideBar'
 import ListPageHeader from '../components/ListPageHeader' //version of PageHeader
 
 /**
@@ -128,7 +128,55 @@ const ToursIndx = ({ pageContext, data: { posts } }) => (
 
 export default ToursIndx
 
+let graphql='biking'
+
+if (graphql==='biking') {
+
 export const pageQuery = graphql`
+  ## query name must be unique to this file
+  query($place: String) {
+    
+    posts: allMdx(
+        filter: {frontmatter: {tags: { in: ["biking"] } meeting: { eq: $place } contentClass: {eq: "tour" } }}
+        sort: { order: ASC, fields: [frontmatter___price_from] }
+    ) {
+      totalCount
+      edges {
+        node {
+          excerpt
+          fields {
+            slug
+          }
+          frontmatter {
+            tourId
+            price_from
+            contentClass
+            title
+            date
+            tags
+            meeting
+            categories {
+              category
+            }
+            featuredImage {
+                childImageSharp {
+                    fluid(maxWidth: 786) {
+                    ...GatsbyImageSharpFluid
+                    }
+                }
+            }
+
+          }
+        }
+      }
+    }
+    
+  }
+`
+}
+
+else {
+  export const pageQuery = graphql`
   ## query name must be unique to this file
   query($tag: String, $place: String) {
     
@@ -169,3 +217,4 @@ export const pageQuery = graphql`
     
   }
 `
+}
