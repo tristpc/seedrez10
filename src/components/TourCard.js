@@ -59,6 +59,7 @@ const PostCard = ({
   slug,
   categories = [],
   className = '',
+  price_from,
   ...props
 }) => (
   <StyledLink to={slug}>
@@ -69,7 +70,7 @@ const PostCard = ({
       {title && <Title>{title}</Title>}
       <Category>
         {categories && categories.map(cat => cat.category).join(', ')}
-        {tour.node.frontmatter.price_from && <div>From ${tour.node.frontmatter.price_from}</div>}
+        {price_from && <div>From ${price_from}</div>}
       </Category>
       {excerpt && <Excerpt>{excerpt}</Excerpt>}
     </Content>
