@@ -181,7 +181,10 @@ exports.createPages = ({ graphql, actions }) => {
               tag: item,
               tagsRegion: allTagsRegion.toString(),
               allRegions: allRegions.toString(),
-              filter: 'filter: {frontmatter: {tags: { in: ["'+item+'"] } meeting: { eq: "'+element+'" } }}',
+            //   tagFull: 'in: ["'+item+'"]',
+            //   tagT: 'in',
+            //   tagM: '["'+item+'"]',
+            //   filter: 'filter: {frontmatter: {tags: { in: ["'+item+'"] } meeting: { eq: "'+element+'" } }}',
             }
           })
         });

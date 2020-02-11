@@ -42,7 +42,8 @@ export const ToursIndxTemplate = ({
   posts = [],
   pageContext,
   enableSearch = true,
-  contentClass
+  contentClass,
+  totalCount
 }) => (
   <Location>
     {({ location }) => {
@@ -62,10 +63,15 @@ export const ToursIndxTemplate = ({
       }
 
       const { tag, place, tagsRegion, allRegions } = pageContext;
+      //const { tag, tagFull, tagT, tagM, place, tagsRegion, allRegions } = pageContext;
 
-      let { totalCount } = data.allMdx;
+      //let { totalCount } = data.allMdx;
       const arrTagsRegion = tagsRegion.split(",")
       const arrAllRegions = allRegions.split(",")
+      //console.log("totalCount="+totalCount)
+    //   console.log("tagFull="+tagFull)
+    //   console.log("tagT="+tagT)
+    //   console.log("tagM="+tagM)
 
       return (
         <main className="Places">
@@ -73,7 +79,7 @@ export const ToursIndxTemplate = ({
           <ListPageHeader
             place={place}
             tag={tag}
-            //count = {totalCount}
+            count = {totalCount}
           />
           
           {!!posts.length && (
@@ -110,6 +116,7 @@ const ToursIndx = ({ pageContext, data: { posts } }) => (
 
     <ToursIndxTemplate
       pageContext={pageContext}
+      totalCount={posts.totalCount}
       posts={posts.edges.map(post => ({
         ...post.node,
         ...post.node.frontmatter,
@@ -126,8 +133,8 @@ export const pageQuery = graphql`
   query($tag: String, $place: String) {
     
     posts: allMdx(
-        filter: {frontmatter: {tags: { in: [$tag] } meeting: { eq: $place } }}
-        sort: { order: DESC, fields: [frontmatter___title] }
+        filter: {frontmatter: {tags: { in: [$tag] } meeting: { eq: $place } contentClass: {eq: "tour" } }}
+        sort: { order: ASC, fields: [frontmatter___price_from] }
     ) {
       totalCount
       edges {
@@ -137,6 +144,9 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
+            tourId
+            price_from
+            contentClass
             title
             date
             tags
