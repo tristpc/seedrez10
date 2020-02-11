@@ -185,7 +185,7 @@ exports.createPages = ({ graphql, actions }) => {
             //   tagFull: 'in: ["'+item+'"]',
             //   tagT: 'in',
             //   tagM: '["'+item+'"]',
-            //   filter: 'filter: {frontmatter: {tags: { in: ["'+item+'"] } meeting: { eq: "'+element+'" } }}',
+              filter: 'filter: {frontmatter: {tags: { in: ["'+item+'"] } meeting: { eq: "'+element+'" } }}',
             }
           })
         });

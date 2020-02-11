@@ -2,7 +2,7 @@
 - need 4 versions of template?
 - search => more fields
 - filters = sidebar
--tags + categories?
+- tags + categories?
 - Netlify CMS
 - each tour format
 
