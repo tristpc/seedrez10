@@ -1,8 +1,7 @@
-//version of PostSection.js (11feb)
+//This is a modified version of PostSection.js
 
 import React from 'react'
-//import PostCard from '../components/PostCard'  //old
-import TourCard from '../components/TourCard' //new, version of PostCard
+import PostCard from '../components/PostCard' //modified version of PostCard
 import styled from 'styled-components'
 
 //PostSection
@@ -102,7 +101,7 @@ class PostSection extends React.Component {
         {!!visiblePosts.length && (
           <Grid>
             {visiblePosts.map((post, index) => (
-              <TourCard key={post.title + index} {...post} />
+              <PostCard key={post.title + index} {...post} />
             ))}
           </Grid>
         )}

@@ -1,5 +1,14 @@
+# To do:-
+- need 4 versions of template?
+- search => more fields
+- filters = sidebar
+-tags + categories?
+- Netlify CMS
+- each tour format
+
 # 11 Feb
 Change ToursIndxTours.js to ToursList.js, add filter & get Sidebar & search working.
+Convert PostSection to TourSection with TourCard etc. Add price_from
 
 # 10Feb
 Save ToursIndx as ToursIndxTours, add filter below with page context:-
@@ -16,10 +25,3 @@ TourListLASTGitpod-7feb.js: last one seemingly working in GP. Based on orig Tour
 TourListLASTNW: failed so then adjusted orig TourList
 TourList: based on orig TourList. looks good but all cards empty
 TourListLASTNW-ToursIndx added: as TourList but with ToursIndx. Failed re tag.
-
-## 7Feb
-ListPageHeader:-
-<div className="container">
-        <h2>{placeTitle}</h2>
-        <DropMenuButton title="Filters" id="dropButton"/>
-      </div>
