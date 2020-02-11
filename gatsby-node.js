@@ -171,7 +171,8 @@ exports.createPages = ({ graphql, actions }) => {
           }
         //   template = "TourList" // orig
         //   template = "TourListIndx" //prev
-          template = "ToursIndxTours" //now
+        // template = "ToursIndxTours" //prev
+          template = "ToursList" //now
           console.log("Page: slug: "+thisSlug+" ("+element+"/ tag "+item+")")
           createPage({
             path: thisSlug,

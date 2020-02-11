@@ -1,3 +1,6 @@
+# 11 Feb
+Change ToursIndxTours.js to ToursList.js, add filter & get Sidebar & search working.
+
 # 10Feb
 Save ToursIndx as ToursIndxTours, add filter below with page context:-
 filter: {frontmatter: {tags: { in: [$tag] } meeting: { eq: $place } }}

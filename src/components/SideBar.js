@@ -3,7 +3,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-import TourSearch from './TourSearch' //version of BlogSearch
+import TourSearch from './TourSearch' 
 import './SideBar.css' //https://www.w3schools.com/howto/howto_css_sidebar_responsive.asp
 
 const SideBar = ({ regions, tags, tag, place, enableSearch }) => {
