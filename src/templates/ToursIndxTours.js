@@ -6,9 +6,10 @@ import qs from 'qs'
 
 import SEO from "../components/seo"
 import TourSection from '../components/PostSection'
-import PostCategoriesNav from '../components/PostCategoriesNav'
+//import PostCategoriesNav from '../components/PostCategoriesNav'
 import Layout from '../components/Layout'
 import SideBar from '../components/SideBarTest'
+import ListPageHeader from '../components/ListPageHeader' //version of PageHeader
 
 /**
  * Filter posts by date. Feature dates will be filtered
@@ -22,7 +23,6 @@ export const byDate = posts => {
 }
 
 /**
- * filter posts by category.
  *
  * @param {posts} object
  * @param {title} string
@@ -63,8 +63,18 @@ export const ToursIndxTemplate = ({
 
       const { tag, place, tagsRegion, allRegions } = pageContext;
 
+      let { totalCount } = data.allMdx;
+      const arrTagsRegion = tagsRegion.split(",")
+      const arrAllRegions = allRegions.split(",")
+
       return (
         <main className="Places">
+
+          <ListPageHeader
+            place={place}
+            tag={tag}
+            //count = {totalCount}
+          />
           
           {!!posts.length && (
             <section className="section">
@@ -119,6 +129,7 @@ export const pageQuery = graphql`
         filter: {frontmatter: {tags: { in: [$tag] } meeting: { eq: $place } }}
         sort: { order: DESC, fields: [frontmatter___title] }
     ) {
+      totalCount
       edges {
         node {
           excerpt
