@@ -87,7 +87,11 @@ export const ToursIndxTemplate = ({
               <div className="container">
                 <div className="mainblock">                
                   <div className="aside">
-                    <SideBar />
+                    <SideBar enableSearch 
+                      regions={arrAllRegions}
+                      tags={arrTagsRegion}
+                      place = {place} 
+                      tag={tag} />
                   </div>
                   
                   <div className="content">
@@ -128,55 +132,7 @@ const ToursIndx = ({ pageContext, data: { posts } }) => (
 
 export default ToursIndx
 
-let graphql='biking'
-
-if (graphql==='biking') {
-
 export const pageQuery = graphql`
-  ## query name must be unique to this file
-  query($place: String) {
-    
-    posts: allMdx(
-        filter: {frontmatter: {tags: { in: ["biking"] } meeting: { eq: $place } contentClass: {eq: "tour" } }}
-        sort: { order: ASC, fields: [frontmatter___price_from] }
-    ) {
-      totalCount
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
-          }
-          frontmatter {
-            tourId
-            price_from
-            contentClass
-            title
-            date
-            tags
-            meeting
-            categories {
-              category
-            }
-            featuredImage {
-                childImageSharp {
-                    fluid(maxWidth: 786) {
-                    ...GatsbyImageSharpFluid
-                    }
-                }
-            }
-
-          }
-        }
-      }
-    }
-    
-  }
-`
-}
-
-else {
-  export const pageQuery = graphql`
   ## query name must be unique to this file
   query($tag: String, $place: String) {
     
@@ -217,4 +173,4 @@ else {
     
   }
 `
-}
+
